@@ -28,11 +28,11 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1727381304945">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1727381342425">
     
-    <link rel="stylesheet" href="/css/style.css?v=1727381304945">
+    <link rel="stylesheet" href="/css/style.css?v=1727381342425">
     
-        <link rel="stylesheet" href="/custom.css?v=1727381304945">
+        <link rel="stylesheet" href="/custom.css?v=1727381342425">
     
 <meta name="generator" content="Hexo 5.4.2"></head>
 
@@ -141,6 +141,26 @@
     </div>
     
 </section>
+const { Component } = require('inferno');
+
+module.exports = class extends Component {
+    render() {
+        const { paginator } = this.props;
+
+        return (
+            <nav
+                class="nexmoe-page-nav"
+                dangerouslySetInnerHTML={{
+                    __html: paginator({
+                        prev_text: '<i class="nexmoefont icon-left"></i>',
+                        next_text: '<i class="nexmoefont icon-right"></i>',
+                        escape: false
+                    })
+                }}
+            ></nav>
+        );
+    }
+};
 
             <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
@@ -176,7 +196,7 @@
 
  
 
-<script async src="/js/app.js?v=1727381304945"></script>
+<script async src="/js/app.js?v=1727381342425"></script>
 
 
 
