@@ -1,32 +1,263 @@
-const { Component } = require('inferno');
-const Background = require('./_partial/background');
+<!DOCTYPE html>
 
-module.exports = class extends Component {
-    render() {
-        const { config, page, theme, partial } = this.props;
-        const language = page.lang || page.language || config.language;
-        const layout = 'nexmoe';
-        const bodyClass = layout === 'nexmoe' ? 'mdui-drawer-body-left' : '';
-        const Body = require(`./_layout/${layout}/body`);
-        const SearchBox = require('./_partial/searchbox');
-        return (
-            <html lang={language ? language.substr(0, 2) : ''}>
-                <head
-                    dangerouslySetInnerHTML={{
-                        __html: partial('_partial/head')
-                    }}
-                ><meta name="generator" content="Hexo 5.4.2"></head>
-                <body class={layout + ' ' + bodyClass}>
-                    <Background {...this.props} />
-                    <Body {...this.props} />
-                    <SearchBox {...this.props} />
-                    <div
-                        dangerouslySetInnerHTML={{
-                            __html: theme.slotFooter
-                        }}
-                    ></div>
-                </body>
-            </html>
-        );
-    }
-};
+<html lang="zh-CN">
+
+<head>
+    
+    <title>七海镜的2022年总结 - 七海镜</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="二次元奇思, 幼儿园编程, 流体力学入门, 缅因猫服务手册">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="努力找回正轨的现实生活&amp;emsp;&amp;emsp;前半年在与精神疾病抗争，1-3月在硬撑，姑且做着无趣的工作，应付着种种表面和气。随着疫情的严重，上海的第一轮封城来临，比起生活上少吃一两顿饭、少点优质蛋白质和蔬菜的摄入来说，那个时候被迫地集中精神在内耗上，或许一定程度上帮助了我度过了疫情也说不定。  &amp;emsp;&amp;emsp;6-8月，突破了就医的心理障碍，问诊、服药、请">
+<meta property="og:type" content="article">
+<meta property="og:title" content="七海镜的2022年总结">
+<meta property="og:url" content="https://github.com/minghymmnos/mingHexoBlog.github.io/2023/01/03/2022/index.html">
+<meta property="og:site_name" content="七海镜">
+<meta property="og:description" content="努力找回正轨的现实生活&amp;emsp;&amp;emsp;前半年在与精神疾病抗争，1-3月在硬撑，姑且做着无趣的工作，应付着种种表面和气。随着疫情的严重，上海的第一轮封城来临，比起生活上少吃一两顿饭、少点优质蛋白质和蔬菜的摄入来说，那个时候被迫地集中精神在内耗上，或许一定程度上帮助了我度过了疫情也说不定。  &amp;emsp;&amp;emsp;6-8月，突破了就医的心理障碍，问诊、服药、请">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-16T19:01:14.170Z">
+<meta property="article:author" content="Nanami_Kagami">
+<meta property="article:tag" content="二次元奇思, 幼儿园编程, 流体力学入门, 缅因猫服务手册">
+<meta name="twitter:card" content="summary">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1727382661505">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1727382661505">
+    
+        <link rel="stylesheet" href="/custom.css?v=1727382661505">
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/minghymmnos/mingHexoBlog.github.io@latest/assets/pic/background.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Nanami_Kagami" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/minghymmnos/mingHexoBlog.github.io@latest/assets/pic/profile.png" alt="Nanami_Kagami"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Nanami_Kagami">
+            <img src="https://cdn.jsdelivr.net/gh/minghymmnos/mingHexoBlog.github.io@latest/assets/pic/profile.png" alt="Nanami_Kagami" alt="Nanami_Kagami">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>2</div>
+        <div><span>标签</span>0</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://qm.qq.com/cgi-bin/qm/qr?k=R-6Zon1NuRAaewwRT0jnvM5qJrv5lH7z&noverify=0&personal_qrcode_source=4" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/1579079" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/minghymmnos/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="https://twitter.com/momingkano" target="_blank" mdui-tooltip="{content: 'Twitter'}" style="color: rgb(29, 155, 240);background-color: rgba(25, 155, 240, .15);">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://steamcommunity.com/profiles/76561198248019792/" target="_blank" mdui-tooltip="{content: 'Steam'}" style="color: rgb(23, 26, 33);background-color: rgba(23, 26, 33, .15);">
+            <i class="nexmoefont icon-steam"></i>
+        </a>
+    </div>
+</div>
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2024 Nanami_Kagami
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 54.09722222222222%;"> 
+              <img data-fancybox="gallery" src="https://cdn.jsdelivr.net/gh/minghymmnos/mingHexoBlog.github.io@latest/assets/pic/background.png" alt="七海镜的2022年总结" loading="lazy">
+              <h1>七海镜的2022年总结</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年01月03日</a>
+</div>
+
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    
+        <a><i class="nexmoefont icon-areachart"></i>约3.3k字</a>
+        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要11分钟</a>
+    
+</div>
+
+      <h2 id="努力找回正轨的现实生活"><a href="#努力找回正轨的现实生活" class="headerlink" title="努力找回正轨的现实生活"></a>努力找回正轨的现实生活</h2><p>&amp;emsp;&amp;emsp;前半年在与精神疾病抗争，1-3月在硬撑，姑且做着无趣的工作，应付着种种表面和气。随着疫情的严重，上海的第一轮封城来临，比起生活上少吃一两顿饭、少点优质蛋白质和蔬菜的摄入来说，那个时候被迫地集中精神在内耗上，或许一定程度上帮助了我度过了疫情也说不定。 </p>
+<p>&amp;emsp;&amp;emsp;6-8月，突破了就医的心理障碍，问诊、服药、请假休息、调理身体，依靠了值得依靠的人，继续被家庭拯救。 </p>
+<p>&amp;emsp;&amp;emsp;8月之后，回到了工作岗位，一点一点把之前转给同事的工作再接回来，按部就班，不急不躁。拔掉了一边的智齿，痛了一个星期，之后也要适应一段时间。 </p>
+<p>&amp;emsp;&amp;emsp;11月，久违地第一次对人干脆地、直白地表达恶意。虽然有着大概一年的缘分，但是绝交之后久违地体会到一种解放的感觉。 </p>
+<p>&amp;emsp;&amp;emsp;12月，一切照旧，一切又似乎都不那么一样。 </p>
+<h2 id="赛博世界"><a href="#赛博世界" class="headerlink" title="赛博世界"></a>赛博世界</h2><h3 id="FF14"><a href="#FF14" class="headerlink" title="FF14"></a>FF14</h3><p>&amp;emsp;&amp;emsp;一切照旧，MMO的世界逐渐失去吸引力只是时间问题，既有游戏本身的原因，也有玩家群体的原因，当然也有同为玩家的自己的原因。6.0主线剧情自然有着感动我的地方，但是整体而言并不及5.0。或许5.0更加理想，更加满足了我心中“伤痕累累的英雄拯救他人，英雄也被他人拯救”这样单纯的幻想与冲动。而6.0则是多了一些现实的哲思，而这些我并非无法感受到，只是感受到、思考后，通常也不会有什么答案，徒添烦恼罢了。而这个时候的我，比起以前不要逃避去思考的选择，更多地会直接逃避掉。说些轻松一点的话，6.0让我对芝诺斯有了些理解，但同时万魔殿支线的剧情让我对古代人产生了不少偏见。 </p>
+<p>&amp;emsp;&amp;emsp;剧情以外，在队友的共同努力下，赶在6.2新零式之前通关了绝亚，那段时间刷了不少遍B站其他up过本纪念的炫酷视频以及无真心攻略的那个视频，回听了不少次那句“看好了，亚历山大”。这次开荒绝亚，我没有打一直以来的诗人，而是选择了武士，因为并不缺输出，P1循环完全固定，P2能停手的地方我全部停手，攒满资源进P3，P3循环固定，最后停手攒满资源进P4，P4把绝大部分精力集中在观察和处理几次机制，循环身位几乎是乱打，运动会判定之前甚至提前了2、3s停手准备处理。 </p>
+<h3 id="艾尔登法环"><a href="#艾尔登法环" class="headerlink" title="艾尔登法环"></a>艾尔登法环</h3><p>&amp;emsp;&amp;emsp;年度游戏实至名归，虽然艾尔登法环并不完美，甚至可以说是问题很多，但是以我2022年的游戏经历来看，作为今年的年度游戏，我内心是觉得老头环配得上的。魂系的魅力加上开放世界的充足体量，着实给我带来了一段丰富又有趣的体验。鉴于我最近大概是玩成了除恶魂和血缘外的魂系游戏全体验，近期打算整理一篇自己的魂系体验报告，所以详细感受就不在年度总结里面细讲了。 </p>
+<h3 id="赛博朋克2077-amp-赛博朋克边缘行者"><a href="#赛博朋克2077-amp-赛博朋克边缘行者" class="headerlink" title="赛博朋克2077&amp;赛博朋克边缘行者"></a>赛博朋克2077&amp;赛博朋克边缘行者</h3><p>&amp;emsp;&amp;emsp;首发之后过了许久，我又捡起了2077。值得说的是今年我玩2077的时候实在是十分巧合，在我尽兴地体验了化身为V的自己在夜之城的故事并且完成全成就之后，边缘行者动画发出，使得那股满是愤懑、释怀，别扭而又爽快的心情再一次被延长。我感慨于2077游戏各处可见的野心与愿景，也为它的早产与波折感到遗憾。“它本可以更好，甚至可以完美”是我能给出的自以为合适的评价。 </p>
+<p>&amp;emsp;&amp;emsp;首发的时候我在铺天盖地的bug中坚持到了V从垃圾场起死回生，在漆黑的演唱会bug以及公路战bug演出中暂时结束了这段经历，甚至没能坚持到和强尼相见。13h的体验之后我留下评论“没有人能记得按时发布的kusogame,那么或许人们会记得不按时发布的kusogame？私感觉欠的打磨不是一点点。目前剧情还没体验特别深，但是我只能说如果最后是一个很nb的剧情或者是一个很复杂很灵活很nb的叙事系统。那么毫无疑问会被现在的游戏体验（界面、图形、操作各方面综合的）极大拖累。” </p>
+<p>&amp;emsp;&amp;emsp;事实证明我当初的直觉是正确的，在96h体验玩一周目自杀结局剧情之后，我增加了评论“虽然现在仍旧有些bug，但至少是可以玩的程度了。而且，剧情部分是肉眼可见的nb而且可惜。主线和支线都十分精彩，让我不禁有一种“这就是赛博朋克”的感受。但是可惜的是主线的体量略小，以及诸多处的细节都没有相应的扩充展开。如果2年前我能够玩到的是现在的2077，我相信这绝对会是我心目中排行前几的nb游戏。而如果2年前甚至现在，我能够玩到的是完全体版的2077，我相信这将是游戏史上的一个传奇。只是可惜，这些如果都只能是如果。” </p>
+<p>&amp;emsp;&amp;emsp;2077至今仍不是完美的2077，甚至不是完全的2077。 </p>
+<p>&amp;emsp;&amp;emsp;边缘行者在完全不破坏这份体验的同时，又将其强化并且延长了许久。虽然多有人评价露西从初见的独立自强到后来变得软弱且“恋爱脑”十分OOC，大卫从来没有为自己而活过等等，这些我无法否认但是又觉得很不舒服。我并不觉得没有理想是什么罪过，为别人的理想而活不至于伟大但也不至于卑微。有的时候站在边缘行走，推动自己走出迈过一线那一步的，并不存在绝对的诱因。内心的抉择与外界的推动，很多时候都在彼此争锋、平衡、波动。在边缘一线，任何的选择都显得突然，又都是那么合理。</p>
+<p>&amp;emsp;&amp;emsp;伏特加加可乐，真的不是很好喝。 </p>
+<h3 id="雨中冒险2"><a href="#雨中冒险2" class="headerlink" title="雨中冒险2"></a>雨中冒险2</h3><p>&amp;emsp;&amp;emsp;体验到了肉鸽刷刷刷的乐趣，久违地做了几个视频扔了上去，意外地有两个还有些人看。 </p>
+<h3 id="刺客信条：起源"><a href="#刺客信条：起源" class="headerlink" title="刺客信条：起源"></a>刺客信条：起源</h3><p>&amp;emsp;&amp;emsp;在介于传统刺客和狂战士刺客之间的状态体验了年轻人的第一款刺客信条，在看到鹰头骨在沙滩上刻下刺客信条logo的时候有种恍然大悟的感觉。本体的体验还算中规中矩，虽然我没怎么玩过育碧的游戏，但是罐头、年货、3A流水线的说法还是多次听过的。一遍主线体验可以说完全符合了这些之前入耳的词汇在我心中构建起来的印象。 </p>
+<p>&amp;emsp;&amp;emsp;dlc部分则是给了不少惊喜，本体除了刺杀后的意识流演出之外，大部分情况还是十分现实感的。而dlc部分则出现了很多魔幻的事情，生与死的边界在游戏世界的现实中发生了模糊，从犄角旮旯中探索，越过狭缝仿佛来到豁然开朗的桃源，不过此桃源非彼桃源，而是一个个死后的世界，无边的麦浪、靠近太阳的城镇、花朵盛开的冥界、黄沙遍地的战场，这4个场景实在是太过惊艳，尤其是麦田和其中的行舟，简直美得堪称艺术。 </p>
+<h3 id="APEX"><a href="#APEX" class="headerlink" title="APEX"></a>APEX</h3><p>&amp;emsp;&amp;emsp;我只会送快递，没熟人朋友带自己完全不敢打。倒是氪了不少传家宝。 </p>
+<h3 id="Among-Us"><a href="#Among-Us" class="headerlink" title="Among Us"></a>Among Us</h3><p>&amp;emsp;&amp;emsp;有段时间狠磕黑白魔主播的CP，FF14区团建狼人杀那两晚看得最开心，开心到自己也下了游戏，打了mod。 </p>
+<p>&amp;emsp;&amp;emsp;后来意识到自己没有那么多能玩得起来太空狼人杀的朋友，然后又把游戏卸了。 </p>
+<h3 id="原神"><a href="#原神" class="headerlink" title="原神"></a>原神</h3><p>&amp;emsp;&amp;emsp;终于到这个了，因为一些原因，在原神里面氪了不少，目前算是除了优菈和胡桃以外角色全图鉴。在原神刚刚发布，深陷抄袭塞尔达争议的时候，我其实是站在原神对面的，因为最初的宣传PV中风之翼、爬墙、草地起火引风、丘丘人、眼睛是弱点的机器人等等，这些给人的即视感实在是太过严重了。我当时评价，如果花费个几千可以体验原神的一部分内容，而同样的金钱我可以体验到包括塞尔达、鬼泣、猎天使魔女等一众单机的内容，我绝对会更倾向后者。直白一点就是觉得不值。但是没想到几年后的今天，自己打了自己的脸。 </p>
+<p>&amp;emsp;&amp;emsp;原神前期蒙德和璃月的地图确实有些“平”，稻妻开始，包括后面的渊下宫和层岩已经体感相当出色了，但是在须弥给我一种到了临界点的感觉，虽然更为通透更为立体更为丰富，但是在锚点设置和迷宫安排上总是有点缺憾。角色方面，只能说米哈游真的很懂怎样营造二次元人设，我本人也是被听书人PV深深吸引到了，从而对钟离好感爆棚。（很奇怪的是除了少数几个女角色以外，原神里面给我好感最高的好像大部分都是些男角色，钟离、魈、温迪等等）。战斗系统数值方面，前面提到最初宣传PV实在太有荒野之息即视感了，但是战斗方面，原神真的是一丁点相似的地方都没有，是有着自己的一套（也可以说是从崩2崩3一贯传承下来的一套）东西的。怪物设计上给我印象过于深刻的就是稻妻阴间地界阴间剧情阴间土特产怪了。剧情方面就不想说啥了，不做评价，稍微提一点比起原神里面通过道具描述等所谓碎片化叙事构建的各种里剧情，我对原神尚未完全揭示的世界观和角色设定通式更感兴趣一些。 </p>
+<h3 id="猎天使魔女3"><a href="#猎天使魔女3" class="headerlink" title="猎天使魔女3"></a>猎天使魔女3</h3><p>&amp;emsp;&amp;emsp;是谁首发就买了，爽了2天，结果到现在还没打完一周目剧情的？！</p>
+<h3 id="魂2"><a href="#魂2" class="headerlink" title="魂2"></a>魂2</h3><p>&amp;emsp;&amp;emsp;这个详细的我也打算放到魂系体验报告里，这里一句话就是，被DLC1劝退，与自己和解了。 </p>
+<h3 id="Lycoris-Recoil"><a href="#Lycoris-Recoil" class="headerlink" title="Lycoris Recoil"></a>Lycoris Recoil</h3><p>&amp;emsp;&amp;emsp;我喜欢，从头喜欢到尾。尤其喜欢千束。 </p>
+<h3 id="秋叶原女仆战争"><a href="#秋叶原女仆战争" class="headerlink" title="秋叶原女仆战争"></a>秋叶原女仆战争</h3><p>&amp;emsp;&amp;emsp;这个番好对我电波，是我看过最好看的黑道片了。壳子是女仆，内核是黑道，再代入些其他的东西的话真的是让我看得十分津津有味。 </p>
+<h3 id="孤独摇滚"><a href="#孤独摇滚" class="headerlink" title="孤独摇滚"></a>孤独摇滚</h3><p>&amp;emsp;&amp;emsp;波奇的每次对未来生活的瞎想基本上都会勾起我内心中的一股已经进化为恐惧的不安。凉好帅好屑，喜欢。PA小姐姐好漂亮，喜欢。醉鬼贝司手（波奇的菊里大姐姐）好帅，喜欢。 </p>
+<p>&amp;emsp;&amp;emsp;孤独摇滚，神！ </p>
+<p>&amp;emsp;&amp;emsp;顺便，买了电吉他，算是重拾？ </p>
+<h3 id="死神千年血战"><a href="#死神千年血战" class="headerlink" title="死神千年血战"></a>死神千年血战</h3><p>&amp;emsp;&amp;emsp;爷青回 </p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&amp;emsp;&amp;emsp;总之，2022年也算是在坎坷中前进的一年，有些事情变得清晰了起来。比如孤独相处与社交之间那微妙的平衡点，我现在更加清楚了一些。以及更有勇气去做一些负面的决定了。有句话叫是药三分毒，也有句话叫适量的毒可以当作药来使用，我想病体未愈的现在正是在寻找这个“适量”的平衡点的过程中。 </p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>Nanami_Kagami<br>
+        <strong>本文链接：</strong><a href="https://github.com/minghymmnos/mingHexoBlog.github.io/2023/01/03/2022/" title="https:&#x2F;&#x2F;github.com&#x2F;minghymmnos&#x2F;mingHexoBlog.github.io&#x2F;2023&#x2F;01&#x2F;03&#x2F;2022&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;github.com&#x2F;minghymmnos&#x2F;mingHexoBlog.github.io&#x2F;2023&#x2F;01&#x2F;03&#x2F;2022&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '7b3216ae25555e44ae95',
+        clientSecret: '07764fa9f8b901bdd90a256cd43fe31036c3d168',
+        id: window.location.pathname,
+        repo: 'mingHexoBlog.github.io',
+        owner: 'minghymmnos',
+        admin: 'minghymmnos'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1727382661506"></script>
+
+
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
